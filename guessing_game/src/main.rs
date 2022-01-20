@@ -19,7 +19,7 @@ fn main() {
             .expect("Failed to read line");
 
     // we are SHADOWING the previous value of guess, which allows us to use the same variable name -- used often to convert one type to another type
-        let guess: u32 = guess.trim().parse() {
+        let guess: u32 = match guess.trim().parse() {
         // .trim() removes whitespace from the beginning and end of the string
         // .parse() method on string converts string into a number
         // the : after guess is a type annotation, which is a way to tell Rust what type we are expecting
