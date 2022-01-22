@@ -1,3 +1,4 @@
+// nested loop example
 fn main() {
     let mut count = 0;
     'counting_up: loop {
@@ -18,4 +19,20 @@ fn main() {
         count += 1;
     }
     println!("End count = {}", count);
+    not_main();
+}
+
+// returning value from loop
+fn not_main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result of not_main is {}", result);
 }
