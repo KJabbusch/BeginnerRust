@@ -10,5 +10,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
         // we can't just return i+1, we have to wrap it in Some
         // that's because our return value is an Option<i32>
         Some(i) => Some(i + 1),
+        // we can also use an _ placeholder that will match any remaining cases
+        // _ => None,
     }
 }
