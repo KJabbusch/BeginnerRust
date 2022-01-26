@@ -1,33 +1,35 @@
-fn main() {
-    // let home = IpAddr::V4(127, 0, 0, 1);
-    // let loopback = IpAddr::V6(String::from("::1"));
-
-
-    let m = Message::Write(String::from("hello, world!"));
-    m.call();
+enum IpAddrKind {
+    // we can specify what type of data we want for each variant in parentheses
+    V4(u8, u8, u8, u8),
+    V6(String),
 }
 
-// enum IpAddr {
-//     V4(u8, u8, u8, u8),
-//     V6(String),
-// }
-
 enum Message {
-    Quit,
-    Move { x: i32, y: i32 },
-    Write(String),
-    ChangeColor(i32, i32, i32),
+    // we could store each variant as its own struct, but they would be different types
+    // the benefit of an enum is that all variants are stored in a single type
+
+    Quit, // stores no data 
+    Move { x: i32, y: i32 }, // stores an anonymous struct
+    Write(String), // stores a String
+    ChangeColor(i32, i32, i32), // stores 3 integers
 }
 
 impl Message {
-    fn call(&self) {
-        // method body would be defined here
+    // we can implement methods on the enum
+    fn some_function() {
+        println!("called some_function");
     }
 }
 
-enum Option<T> {
-    Some(T),
-    None,
+struct IpAddr {
+    kind: IpAddrKind,
+    address: String,
 }
 
+fn main () {
+    // localhost 
+    let localhost: IpAddrKind = IpAddrKind::V4(127, 0, 0, 1);
+}
 
+fn route(ip_kind: IpAddrKind) {
+}
