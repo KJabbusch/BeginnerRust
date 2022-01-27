@@ -18,6 +18,7 @@ mod front_of_house {
 }
 // we can bring hosting module into scope with the use keyword
 use crate::front_of_house::hosting;
+// we can bring Appetizer enum into scope with the use keyword
 use crate::back_of_house::Appetizer;
 
 pub fn eat_at_restaurant() {
