@@ -16,10 +16,10 @@ mod front_of_house {
         pub fn seat_at_table() {}
     }
 }
-// we can bring hosting module into scope with the use keyword
+// we can bring hosting module into scope with the use keyword -- absolute path
 use crate::front_of_house::hosting;
-// we can bring Appetizer enum into scope with the use keyword
-use crate::back_of_house::Appetizer;
+// we can bring Appetizer enum into scope with the use keyword -- relative path
+use self::back_of_house::Appetizer;
 
 pub fn eat_at_restaurant() {
     hosting::add_to_waitlist();
